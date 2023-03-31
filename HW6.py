@@ -111,26 +111,21 @@ def calculate_bmi(filename):
 
     cache_data = load_json(filename)
 
-    # Create an empty dictionary to store the results
     bmi_data = {}
 
-    # Loop through each character in the cache
     for character in cache_data.values():
-        # Get the character's name, height, and mass
+
         name = character['name']
         height = character['height']
         mass = character['mass']
 
-        # Check if the character's height and mass are known
         if height != 'unknown' and mass != 'unknown':
-            # Convert the height to meters and the mass to kilograms
+
             height_m = float(height) / 100
             mass_kg = float(mass)
 
-            # Calculate the BMI using the formula for the metric system
             bmi = mass_kg / height_m**2
 
-            # Add the character's BMI to the dictionary
             bmi_data[name] = bmi
 
     return bmi_data
